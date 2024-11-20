@@ -11,17 +11,17 @@ public class Main {
 
     public static Book readBookFile(String fileName) {
         try {
-            File book = new File(fileName);
+            File book = new File(fileName); //initializing File book
             Scanner reader = new Scanner(book);
 
-                String title = reader.nextLine();
+                String title = reader.nextLine(); //using scanner to getline
                 String author = reader.nextLine();
                 String isbn = reader.nextLine();
 
-               return new Book(title,author,isbn);
+               return new Book(title,author,isbn); //we return an Book object
 
 
-        } catch (IOException e) {
+        } catch (IOException e) { //if any error occurs, we get a message
             throw new RuntimeException(e);
         }
 
@@ -34,7 +34,7 @@ public class Main {
             String title = reader.nextLine();
             String author = reader.nextLine();
             String isbn = reader.nextLine();
-            double fileSizeMB = Double.parseDouble(reader.nextLine());
+            double fileSizeMB = Double.parseDouble(reader.nextLine()); // the txt file contains a string, so we need to parse it to double to be useful
 
             return new Ebook(title,author,isbn,fileSizeMB);
 

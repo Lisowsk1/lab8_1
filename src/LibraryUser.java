@@ -109,13 +109,13 @@ public class LibraryUser {
 
     public void saveBorrowedBooks(){
           try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(getName()+"borrowedBooks.txt"));
-              writer.write(getName()+" "+getUserId()+"\n");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(getName()+"borrowedBooks.txt")); //title
+              writer.write(getName()+" "+getUserId()+"\n"); //header
             for(int i=0;i<borrowedBooks.size();i++)
             {
-                writer.write(borrowedBooks.get(i).getTitle()+"\n");
+                writer.write(borrowedBooks.get(i).getTitle()+"\n"); //we go by every book and save the title into the file
             }
-            writer.close();
+            writer.close(); //closing write to not waste memory we dont use anymore
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

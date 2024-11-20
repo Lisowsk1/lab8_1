@@ -1,4 +1,0 @@
-2 classes
-1 function method calculate with parameter to get the value
-2 integral that claculates the area below the curve
-newton raphson and motne carlo
