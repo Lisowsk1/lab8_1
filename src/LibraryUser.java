@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LibraryUser {
+public class LibraryUser  {
     private String name;
     private String userId;
     private ArrayList<Book> borrowedBooks = new ArrayList<>();
@@ -39,7 +39,7 @@ public class LibraryUser {
         borrowedBooks.addFirst(book);
     }
 
-    public void removeBorrowedBook(Book book) {
+    public void removeBorrowedBook(Object book) {
         borrowedBooks.remove(book);
     }
 
@@ -80,7 +80,7 @@ public class LibraryUser {
         }
     }
 
-    public boolean isAudiobook(Book book) {
+    public boolean isAudiobook(Object book) {
         if (book instanceof Audiobook)
             return true;
         return false;
@@ -93,7 +93,7 @@ public class LibraryUser {
                 System.out.println(borrowedBook.getTitle());
         }
     }
-    public boolean isEbook(Book book) {
+    public boolean isEbook(Object book) {
         if (book instanceof Ebook)
             return true;
         return false;

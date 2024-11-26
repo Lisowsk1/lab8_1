@@ -1,4 +1,4 @@
-class Ebook extends Book {
+class Ebook extends AbstractBook {
     private double fileSizeMB;
 
 
