@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    Book book1;
+    Object book1;
     static Book book2 = new Book("Bible", "Moses", "87456788");
     static Book book3 = new Book("Witcher Blood of Elves", "Andrzej Sapkowski", "986547765");
     Ebook ebook1;

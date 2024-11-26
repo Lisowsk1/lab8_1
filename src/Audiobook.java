@@ -1,4 +1,4 @@
-class Audiobook extends Book{
+class Audiobook extends AbstractBook{
 private double duration;
 private  double fileSizeMB;
 
@@ -27,7 +27,8 @@ private  double fileSizeMB;
     @Override
     public void displayInfo(){
         super.displayInfo();
-        System.out.println(duration);//will it print filesize??
+        System.out.println(duration);
+        System.out.println(fileSizeMB);
     }
 
 
