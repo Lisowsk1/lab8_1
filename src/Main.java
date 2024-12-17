@@ -112,12 +112,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        user1.borrowBook(book1);
-        user2.borrowBook(book2);
-        user3.borrowBook(book3);
-
         new Gui();
-
     }
 }
