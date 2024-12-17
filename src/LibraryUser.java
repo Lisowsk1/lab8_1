@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class LibraryUser  {
     private String name;
     private String userId;
-    private ArrayList<Book> borrowedBooks = new ArrayList<>();
-    private ArrayList<Book> historicalBorrowedBooks = new ArrayList<>();
+    private ArrayList<LibraryItem> borrowedBooks = new ArrayList<>();
+    private ArrayList<LibraryItem> historicalBorrowedBooks = new ArrayList<>();
 
 
     public LibraryUser(String name, String userId) {
@@ -31,20 +31,20 @@ public class LibraryUser  {
         this.userId = userId;
     }
 
-    public ArrayList<Book> getBorrowedBook() {
+    public ArrayList<LibraryItem> getBorrowedBook() {
         return borrowedBooks;
     }
 
-    public void addBorrowedBook(Book book) {
+    public void addBorrowedBook(LibraryItem book) {
         borrowedBooks.addFirst(book);
     }
 
-    public void removeBorrowedBook(Object book) {
+    public void removeBorrowedBook(LibraryItem book) {
         borrowedBooks.remove(book);
     }
 
-    public void borrowBook(Book book) {
-        if (book.getAvailable()) {
+    public void borrowBook(LibraryItem book) {
+        if (book.isAvailable()) {
             borrowedBooks.add(book);
             historicalBorrowedBooks.add(book);
         }
@@ -52,30 +52,37 @@ public class LibraryUser  {
     }
 
 
-    public void returnBook(Book book) {
-        if (!book.getAvailable())
+    public void returnBook(LibraryItem book) {
+        if (!book.isAvailable())
             borrowedBooks.remove(book);
         book.returnBook();
+    }
+    public boolean isAvailable(Book book){
+        return book.isAvailable();
+    }
+
+    public boolean hasBorrowed(LibraryItem book) {
+        return borrowedBooks.contains(book);
     }
 
     public void displayBorrowedBooks() {
         System.out.println("Borrowed books:");
-        for (Book borrowedbook : borrowedBooks) {
+        for (LibraryItem borrowedbook : borrowedBooks) {
             System.out.println(borrowedbook.getTitle());
         }
     }
 
-    public ArrayList<Book> getHistoricalBorrowedBooks() {
+    public ArrayList<LibraryItem> getHistoricalBorrowedBooks() {
         return historicalBorrowedBooks;
     }
 
-    public void setHistoricalBorrowedBooks(ArrayList<Book> historicalBorrowedBooks) {
+    public void setHistoricalBorrowedBooks(ArrayList<LibraryItem> historicalBorrowedBooks) {
         this.historicalBorrowedBooks = historicalBorrowedBooks;
     }
 
     public void displayHistoricallyBorrowedBooks() {
         System.out.println("Historically borrowed books:");
-        for (Book historicalBorrowedBook : historicalBorrowedBooks) {
+        for (LibraryItem historicalBorrowedBook : historicalBorrowedBooks) {
             System.out.println(historicalBorrowedBook.getTitle());
         }
     }
@@ -88,7 +95,7 @@ public class LibraryUser  {
 
     public void displayOnlyAudiobooks() {
         System.out.println("Borrowed audiobooks:");
-        for (Book borrowedBook : borrowedBooks) {
+        for (LibraryItem borrowedBook : borrowedBooks) {
             if (isAudiobook(borrowedBook))
                 System.out.println(borrowedBook.getTitle());
         }
@@ -101,7 +108,7 @@ public class LibraryUser  {
 
     public void displayOnlyEbooks() {
         System.out.println("Borrowed ebooks:");
-        for (Book borrowedBook : borrowedBooks) {
+        for (LibraryItem borrowedBook : borrowedBooks) {
             if (isEbook(borrowedBook))
                 System.out.println(borrowedBook.getTitle());
         }
